@@ -6,7 +6,7 @@ from ..engine.game import Event
 from ..online.client import OnlineClient, OnlineError
 from .common import render_hand, render_reaction_and_voice, render_seats, render_table
 
-SERVER_URL = os.environ.get("THULLA_SERVER_URL", "http://127.0.0.1:8000")
+SERVER_URL = st.secrets.get("GAME_SERVER_URL", os.environ.get("THULLA_SERVER_URL", "https://thulla-game-6ryr.onrender.com"))
 
 
 def render(auth) -> None:

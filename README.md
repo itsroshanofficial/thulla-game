@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🃏 Thulla — Streamlit card game with Punjabi comedy reactions
 
 Free & open-source stack: Python, Streamlit, FastAPI, SQLite, Argon2id.
@@ -88,3 +89,6 @@ the UI could reuse `thulla/engine`, `ai`, `offline` and `voice` unchanged.
 
 ## Licence
 MIT (code). Add audio licences in `assets/audio/README.md`.
+=======
+# thulla-game
+>>>>>>> 7dba50d11b3cd6aa8b9058e379d4ba6a54969041

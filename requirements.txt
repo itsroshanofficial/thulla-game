@@ -4,3 +4,4 @@ fastapi>=0.110         # online backend (MIT)
 uvicorn>=0.29          # ASGI server (BSD-3)
 requests>=2.31         # Streamlit -> server client (Apache-2.0)
 # Dev/test uses only the standard library: python -m unittest discover -s tests
+libsql-client>=0.3.0

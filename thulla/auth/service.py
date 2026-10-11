@@ -210,7 +210,6 @@ class _TursoCursor:
         self.lastrowid = None
 
     def execute(self, sql, params=()):
-        # Convert sqlite ? placeholders if needed, standard libsql supports them
         res = self.client.execute(sql, params)
         self.lastrowid = res.last_insert_rowid
         self._res = res
@@ -247,6 +246,11 @@ class _TursoCtx:
     def execute(self, sql, params=()):
         return _TursoCursor(self.client).execute(sql, params)
 
+    def executescript(self, script):
+        for stmt in script.split(";"):
+            if stmt.strip():
+                self.client.execute(stmt)
+        return self
+
     def __exit__(self, et, ev, tb):
-        # libsql-client handles auto-commits per statement or transaction context
         pass

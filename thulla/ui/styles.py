@@ -349,5 +349,14 @@ hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+/* Streamlit Header Toolbar Hide karne ke liye */
+header[data-testid="stHeader"] {
+    display: none !important;
+}
+
+/* Agar upar thodi extra space bache toh usay bhi kam karne ke liye */
+.block-container {
+    padding-top: 1rem !important;
+}
 </style>
 """

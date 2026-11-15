@@ -28,11 +28,14 @@ def render(auth) -> None:
         with c2.form("join"):
             c = st.text_input("Room code", max_chars=6)
             if st.form_submit_button("Join room"):
-                try:
-                    ss.room_code, ss.room_seq = client.join(c), 0
-                    st.rerun()
-                except OnlineError as e:
-                    st.error(str(e))
+                if not c or not c.strip():
+                    st.warning("Please enter a valid room code.")
+                else:
+                    try:
+                        ss.room_code, ss.room_seq = client.join(c.strip()), 0
+                        st.rerun()
+                    except OnlineError as e:
+                        st.error(str(e))
         st.caption(f"Server: {SERVER_URL}")
         return
     _room(client, code)

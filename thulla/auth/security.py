@@ -60,7 +60,8 @@ def get_secret_key() -> bytes:
         except NameError:
             _DEV_KEY = secrets.token_bytes(32)
             return _DEV_KEY
-    return key.encode()
+    # Strip any accidental whitespace, quotes, or newlines from environment variable
+    return key.strip().strip('"').strip("'").encode()
 
 
 def make_token(user_id: int, ttl: int = 8 * 3600, key: bytes | None = None) -> str:
